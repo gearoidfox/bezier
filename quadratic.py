@@ -59,8 +59,6 @@ def bezier(t):
     y.append(by)
 
     # update labels:
-    #btext.set_data(bx, by + 0.1, "$B$")
-    #btext = axis.text(bx, by + 0.1, "$B$", animated=True)
     btext.set_position((bx, by + 0.1))
     btext.set_text("$B$")
     q0text.set_position((q0x - 0.35, q0y))
@@ -72,11 +70,12 @@ def bezier(t):
     b.set_data(x, y)
     b_pt.set_data(bx, by)
     q.set_data([q0x, q1x], [q0y, q1y])
-    return p, q, b, b_pt, btext, q0text, q1text
+    return (p, q, b, b_pt, btext, q0text, q1text)
 
 
 anim = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=True, repeat=False)
 pyplot.show()
+
 sys.stderr.write('Writing to "quadratic.gif"...\n')
 gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=False, repeat=False)
 gif.save('quadratic.gif', writer='imagemagick', fps=24)
