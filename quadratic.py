@@ -12,8 +12,12 @@ p0 = [0,  0.5]   # [x, y]
 p1 = [4.2,  4.3]
 p2 = [7.3, 1.4]
 
-# number of points on the curve to draw
+# number of points on the curve to draw:
 N = 96
+
+# output file name:
+gifname = 'quadratic.gif'
+
 # store coordinates of the points on the curve as we calculate them:
 x = []
 y = []
@@ -73,9 +77,6 @@ def bezier(t):
     return (p, q, b, b_pt, btext, q0text, q1text)
 
 
-anim = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=True, repeat=False)
-pyplot.show()
-
-sys.stderr.write('Writing to "quadratic.gif"...\n')
-gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=False, repeat=False)
-gif.save('quadratic.gif', writer='imagemagick', fps=24)
+gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=True, repeat=False)
+sys.stderr.write('Writing to "{}"...\n'.format(gifname))
+gif.save(gifname, writer='imagemagick', fps=24)
