@@ -30,26 +30,30 @@ axis.set_axis_off()
 # control points:
 p, = pyplot.plot([p0[0], p1[0], p2[0], p3[0]], [p0[1], p1[1], p2[1], p3[1]], 
         'o-', c='#999999', animated=True, alpha=0.5)
-# bézier curve:
-b, = pyplot.plot([], [], '-', c='magenta', animated=True)
-# current point on curve:
-b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True)
-# other lines 
-q0, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.5)
-q1, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.33)
-r, = pyplot.plot([], [], 'o-', c='yellow', animated=True, alpha=0.6)
-
 axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0], p2[1] - 0.2, "$P_2$")
 axis.text(p3[0] + 0.1, p3[1], "$P_3$")
 
-btext = axis.text(0, 0, '', animated=True)
+# other lines 
+q0, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.33)
+q1, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.33)
+
 q0text = axis.text(0, 0, '', animated=True)
 q1text = axis.text(0, 0, '', animated=True)
 q2text = axis.text(0, 0, '', animated=True)
+
+r, = pyplot.plot([], [], 'o-', c='gold', animated=True, alpha=.6)
 r0text = axis.text(0, 0, '', animated=True)
 r1text = axis.text(0, 0, '', animated=True)
+
+# bézier curve:
+b, = pyplot.plot([], [], '-', c='magenta', animated=True)
+# current point on curve:
+b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True)
+btext = axis.text(0, 0, '', animated=True)
+
+# time point text:
 ttext = axis.text(0, 0, '', animated=True)
 
 def bezier(t):

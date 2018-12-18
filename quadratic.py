@@ -28,13 +28,13 @@ axis.set_axis_off()
 
 # control points:
 p, = pyplot.plot([p0[0], p1[0], p2[0]], [p0[1], p1[1], p2[1]], 'o-', 
-        c='#999999', animated=True)
-# bézier curve:
-b, = pyplot.plot([], [], '-', c='magenta', animated=True)
-# current point on curve:
-b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True)
+        c='#999999', animated=True, alpha=.5)
 # 
-q, = pyplot.plot([], [], 'o-', c='cyan', animated=True)
+q, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=.33)
+# bézier curve:
+b, = pyplot.plot([], [], '-', c='magenta', animated=True, alpha=1)
+# current point on curve:
+b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True, alpha=1)
 axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0] + 0.1, p2[1] - 0.1, "$P_2$")
@@ -74,12 +74,12 @@ def bezier(t):
     q1text.set_text("$Q_1$")
 
     # update animation:
-    b.set_data(x, y)
     b_pt.set_data(bx, by)
     q.set_data([q0x, q1x], [q0y, q1y])
-    return (p, q, b, b_pt, btext, q0text, q1text)
+    b.set_data(x, y)
+    return (b_pt, b, q, p, btext, q0text, q1text)
 
 
-gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=True, repeat=False)
+gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=False, repeat=False)
 sys.stderr.write('Writing to "{}"...\n'.format(gifname))
 gif.save(gifname, writer='imagemagick', fps=24)
