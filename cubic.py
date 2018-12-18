@@ -50,6 +50,7 @@ q1text = axis.text(0, 0, '', animated=True)
 q2text = axis.text(0, 0, '', animated=True)
 r0text = axis.text(0, 0, '', animated=True)
 r1text = axis.text(0, 0, '', animated=True)
+ttext = axis.text(0, 0, '', animated=True)
 
 def bezier(t):
     """
@@ -84,6 +85,9 @@ def bezier(t):
     y.append(by)
 
     # update labels:
+    ttext.set_position((0, 0))
+    ttext.set_text("t="+str(t.round(2)))
+
     btext.set_position((bx, by + 0.1))
     btext.set_text("$B$")
 
