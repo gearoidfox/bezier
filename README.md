@@ -1,14 +1,16 @@
-A demonstration of how **Bézier curves** are constructed.
+Animations to demonstrate **Bézier curves**.
 
-Quadratic curves:
+
+Quadratic Bézier curves:
 
     python3 quadratic.py
     
 ![Bézier curve animation](quadratic.gif) 
 
 
-Cubic curves:
+Cubic Bézier curves:
     
     python3 cubic.py
+
 ![Bézier curve animation](cubic.gif) 
 
