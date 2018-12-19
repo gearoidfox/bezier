@@ -35,9 +35,13 @@ q, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=.33)
 b, = pyplot.plot([], [], '-', c='magenta', animated=True, alpha=1)
 # current point on curve:
 b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True, alpha=1)
+
 axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0] + 0.1, p2[1] - 0.1, "$P_2$")
+axis.text(0, max((p0[1], p1[1], p2[1])) + 0.5,
+        "$\mathbf{B}(t) = (1-t)^2\mathbf{P}_0+"
+        "2(1-t)t\mathbf{P}_1+ t^2\mathbf{P}_2$")
 
 btext = axis.text(0, 0, '', animated=True)
 q0text = axis.text(0, 0, '', animated=True)
@@ -80,6 +84,7 @@ def bezier(t):
     return (b_pt, b, q, p, btext, q0text, q1text)
 
 
-gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=False, repeat=False)
+gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N),
+        blit=False, repeat=False)
 sys.stderr.write('Writing to "{}"...\n'.format(gifname))
 gif.save(gifname, writer='imagemagick', fps=24)

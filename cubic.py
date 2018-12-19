@@ -34,6 +34,9 @@ axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0], p2[1] - 0.2, "$P_2$")
 axis.text(p3[0] + 0.1, p3[1], "$P_3$")
+axis.text(0, max((p0[1], p1[1], p2[1], p3[1])) + 0.5,
+        "$\mathbf{B}(t) = (1-t)^3\mathbf{P}_0 + 3(1-t)^2t\mathbf{P}_1+"
+        "3(1-t)t^2\mathbf{P}_2+t^3\mathbf{P}_3$")
 
 # other lines 
 q0, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.33)
@@ -116,9 +119,11 @@ def bezier(t):
     q0.set_data([q0x, q1x], [q0y, q1y])
     q1.set_data([q1x, q2x], [q1y, q2y])
     r.set_data([r0x, r1x], [r0y, r1y])
-    return (p, q0, q1, r, b, b_pt, btext, q0text, q1text, q2text, r0text, r1text)
+    return (p, q0, q1, r, b, b_pt, btext,
+            q0text, q1text, q2text, r0text, r1text)
 
 # Save a GIF:
-gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N), blit=True, repeat=False)
+gif = FuncAnimation(fig, bezier, frames=linspace(0, 1, num=N),
+        blit=True, repeat=False)
 sys.stderr.write('Writing to "{}"...\n'.format(gifname))
 gif.save(gifname, writer='imagemagick', fps=24)
