@@ -24,6 +24,7 @@ x = []
 y = []
 
 # set up animation in matplotlib
+pyplot.rc('text', usetex=True)
 fig, axis = pyplot.subplots()
 axis.set_axis_off()
 
@@ -34,9 +35,17 @@ axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0], p2[1] - 0.2, "$P_2$")
 axis.text(p3[0] + 0.1, p3[1], "$P_3$")
-axis.text(0, max((p0[1], p1[1], p2[1], p3[1])) + 0.5,
-        "$\mathbf{B}(t) = (1-t)^3\mathbf{P}_0 + 3(1-t)^2t\mathbf{P}_1+"
-        "3(1-t)t^2\mathbf{P}_2+t^3\mathbf{P}_3$")
+#axis.text(-0.5, max((p0[1], p1[1], p2[1])) + 0.25,
+axis.text(0, 1,
+        "\\begin{eqnarray*}"
+        "\mathbf{B}(t) &=& (1-t)^3\mathbf{P}_0 + 3(1-t)^2t\mathbf{P}_1+"
+        "3(1-t)t^2\mathbf{P}_2+t^3\mathbf{P}_3\\\\"
+        "&=& (1-t)^2\mathbf{Q}_0 +"
+        "2(1-t)t\mathbf{Q}_1+ t^2\mathbf{Q}_2 \\\\"
+        "&=& (1-t)\mathbf{R}_0+ t\mathbf{R}_1 "
+        "\\end{eqnarray*}",
+        transform=axis.transAxes
+        )
 
 # other lines 
 q0, = pyplot.plot([], [], 'o-', c='cyan', animated=True, alpha=0.33)

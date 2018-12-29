@@ -23,6 +23,7 @@ x = []
 y = []
 
 # set up animation in matplotlib
+pyplot.rc('text', usetex=True)
 fig, axis = pyplot.subplots()
 axis.set_axis_off()
 
@@ -39,9 +40,14 @@ b_pt, = pyplot.plot([], [], 'o', c='magenta', animated=True, alpha=1)
 axis.text(p0[0] - 0.25, p0[1] - 0.25, "$P_0$")
 axis.text(p1[0], p1[1] + 0.1, "$P_1$")
 axis.text(p2[0] + 0.1, p2[1] - 0.1, "$P_2$")
-axis.text(0, max((p0[1], p1[1], p2[1])) + 0.5,
-        "$\mathbf{B}(t) = (1-t)^2\mathbf{P}_0+"
-        "2(1-t)t\mathbf{P}_1+ t^2\mathbf{P}_2$")
+axis.text(0, 1,
+        "\\begin{eqnarray*}"
+        "\mathbf{B}(t) &=& (1-t)^2\mathbf{P}_0 +"
+        "2(1-t)t\mathbf{P}_1+ t^2\mathbf{P}_2 \\\\"
+        "&=& (1-t)\mathbf{Q}_0+ t\mathbf{Q}_1 "
+        "\\end{eqnarray*}",
+        transform=axis.transAxes
+        )
 
 btext = axis.text(0, 0, '', animated=True)
 q0text = axis.text(0, 0, '', animated=True)
