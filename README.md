@@ -2,7 +2,7 @@
 
 ### Interactive javascript demo:
 
-[gearoidfox.github.io/bezier]
+[gearoidfox.github.io/bezier](https://gearoidfox.github.io/bezier)
 
 ### Animations using matplotlib:
 
