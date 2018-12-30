@@ -47,15 +47,15 @@
                                 <p> A <b>Bézier curve</b> is a type parametric curve, specified by a set of control points.
                                 An n'th order Bézier curve has n+1 control points P, and can be defined as:</p>
 
-                                <p> <img class="inline" src="equation_blue.png"></img></p>
+                                <p> <img class="inline" src="img/equation_blue.png"></img></p>
                                 <p> This means that for each value of t, B(t) is a weighted average of the control points P. As t varies from 0 to 1, the weight of each control point changes, causing B(t) to trace out a smooth curve.</p>
                                 <p> It can also be helpful to think about an (equivalent) recursive  definition for Bézier curves. When we draw a first order Bézier curve, we can think of it as interpolating linearly between two control points, tracing out a straight line:</p>
-                                <p> <img src="linear.gif" alt="Animation of a linear Bézier curve."></p>
+                                <p> <img src="img/linear.gif" alt="Animation of a linear Bézier curve."></p>
                                 <p>We can think of a second-order (quadratic) curve as a linear interpolation between two first-order curves:</p>
-                                <p> <img src="quadratic.gif" alt="Animation of a quadratic Bézier curve."> </p>
+                                <p> <img src="img/quadratic.gif" alt="Animation of a quadratic Bézier curve."> </p>
                                 </p>
                                 <p>A third-order (cubic) curve, in turn, interpolates between two second-order curves:</p>
-                                <p> <img src="cubic.gif" alt="Animation of a cubic Bézier curve."> </p>
+                                <p> <img src="img/cubic.gif" alt="Animation of a cubic Bézier curve."> </p>
                                 <p>This pattern continues for higher order curves, with a Bézier curve of order n being a linear interpolation between two curves of order n-1. If the n'th order curve has control points P[0]..P[n], the two lower order curves have control points P[0]..P[n-1] and P[1]..P[n], respectively.</p>
                         </div>
                 </div>
