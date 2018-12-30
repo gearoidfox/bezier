@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+                <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Raleway" rel="stylesheet">
+                <title>Bézier Curves</title>
+        </head>
+
+        <body>
+                <div id="content">
+                        <div id="bezier">
+                                <h1> Bézier Curves</h1>
+                                <div id="canvas">
+                                        <canvas id="myCanvas" height="500" width="500"> Please use a browser that supports the HTML Canvas element.
+                                        </canvas>
+                                </div>
+                                <div id="side">
+                                        <div id="instruction">Drag the control points to edit the curve.</div>
+                                        <div id="controls">
+                                                <div id="parameters">
+                                                        <div>
+                                                                <label for="order">Order:</label>
+                                                                <input class="num" type="number" id="order" value="3" min="1" max="10" onchange="draw()">
+                                                        </div>
+                                                </div>
+                                                <div id="options">
+                                                        <div>
+                                                                <label for="drawPoints">Draw control points:</label>
+                                                                <input type="checkbox" id="drawPoints" checked onchange="draw()">
+                                                        </div>
+                                                        <div>
+                                                                <label for="drawLines">Connect control points:</label>
+                                                                <input type="checkbox" id="drawLines" checked onchange="draw()">
+                                                        </div>
+                                                        <div>
+                                                                <label for="drawLabels">Label control points:</label>
+                                                                <input type="checkbox" id="drawLabels" checked onchange="draw()">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div id="divider"><hr></div>
+                        <div id="description">
+
+                                <p> A <b>Bézier curve</b> is a type parametric curve, specified by a set of control points.
+                                An n'th order Bézier curve has n+1 control points P, and can be defined as:</p>
+
+                                <p> <img class="inline" src="equation_blue.png"></img></p>
+                                <p> This means that for each value of t, B(t) is a weighted average of the control points P. As t varies from 0 to 1, the weight of each control point changes, causing B(t) to trace out a smooth curve.</p>
+                                <p> It can also be helpful to think about an (equivalent) recursive  definition for Bézier curves. When we draw a first order Bézier curve, we can think of it as interpolating linearly between two control points, tracing out a straight line:</p>
+                                <p> <img src="linear.gif" alt="Animation of a linear Bézier curve."></p>
+                                <p>We can think of a second-order (quadratic) curve as a linear interpolation between two first-order curves:</p>
+                                <p> <img src="quadratic.gif" alt="Animation of a quadratic Bézier curve."> </p>
+                                </p>
+                                <p>A third-order (cubic) curve, in turn, interpolates between two second-order curves:</p>
+                                <p> <img src="cubic.gif" alt="Animation of a cubic Bézier curve."> </p>
+                                <p>This pattern continues for higher order curves, with a Bézier curve of order n being a linear interpolation between two curves of order n-1. If the n'th order curve has control points P[0]..P[n], the two lower order curves have control points P[0]..P[n-1] and P[1]..P[n], respectively.</p>
+                        </div>
+                </div>
+                <script src="js/bezier.js"></script>
+        </body>
+</html>

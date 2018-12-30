@@ -1,0 +1,151 @@
+body {
+        background: #d0e1f9;
+        color: #283655;
+        border-color: #283655;
+        font-family: 'Raleway', sans-serif;
+        font-size: 12pt;
+        font-weight: bold;
+}
+
+
+h1 {
+        text-align: center;
+        font-family: 'Berkshire Swash', sans-serif;
+        font-size: 32pt;
+}
+
+h2 {
+        font-family: 'Berkshire Swash', sans-serif;
+}
+
+h3 {
+        font-family: 'Berkshire Swash', sans-serif;
+        font-size: 16pt;
+        padding: 0px;
+        margin: 0px;
+        text-align: left;
+        text-decoration: none;
+}
+
+img {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        border: 1px solid;
+        border-color: #283655;
+}
+
+img.inline {
+        height: 60px;
+        border: 0px;
+}
+
+hr {
+        width: 25%;
+        border: dotted 1px;
+        display: none;
+}
+
+div#divider {
+        padding: 20px 0px 0px 0px;
+}
+
+canvas {
+        display: inline-block;
+        margin: 0px;
+        padding: 0px;
+}
+
+div#description {
+        display: block;
+        max-width: 900px;
+        margin: 0 auto;
+}
+
+div#content {
+        margin: 0 auto;
+        text-align: center;
+}
+
+div#bezier {
+        display: block;
+}
+
+div#instruction {
+        margin: 0px 5px 5px 0px;
+}
+
+div#canvas {
+        background: #FFFFFF;
+        border: 1px;
+        margin: 0px 0px 0px 0px;
+        border-style: solid;
+        padding: 0px 0px 0px 0px;
+        display: inline-block;
+        vertical-align: text-top;
+        height: 500px;
+}
+div#controls {
+        border: 1px;
+        padding: 5px 5px 5px  5px ;
+        border-style: solid;
+        vertical-align: text-top;
+        text-align: right;
+}
+
+div#side {
+        padding: 0px 5px 5px  5px ;
+        display: inline-block;
+        vertical-align: text-top;
+        text-align: left;
+}
+
+div#params {
+        border: 1px;
+        border-style: none;
+        margin: 0px 0px 5px 0px;
+}
+
+div#options {
+        border: 1px;
+        border-style: none;
+        margin: 5px 0px 5px 0px;
+}
+
+div#buttonDiv {
+        float: right;
+}
+
+div.radioOption {
+        text-align: right;
+        padding: 0px 0px 0px 20px;
+}
+
+input {
+        margin: 3px 0px 3px 0px;
+        text-align: right;
+        background: #ffffff;
+        border: none;
+}
+
+label {
+        float: left;
+}
+
+
+button {
+        background: #ddddee;
+        border: none;
+        font-family: sans-serif;
+        text-align: center;
+        display: block;
+}
+p {
+        text-align: left;
+        display: block;
+}
+
+span {
+        text-align: left;
+        display: inline-block;
+}
