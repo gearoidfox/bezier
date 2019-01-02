@@ -1,13 +1,15 @@
 "use strict";
-var canvas = document.getElementById("myCanvas");
+var canvas = document.getElementById("bezierCanvas");
 var context = canvas.getContext("2d");
+
+context.font = "bold 8pt Raleway";
 
 // Allow user to drag control points:
 var drag = false;
 var dragIndex;
-canvas.addEventListener("mousedown", mouseDown, false);
-canvas.addEventListener("mouseup", mouseUp, false);
-canvas.addEventListener("mousemove", mouseMove, false);
+//canvas.addEventListener("mousedown", mouseDown, true);
+//canvas.addEventListener("mouseup", mouseUp, true);
+//canvas.addEventListener("mousemove", mouseMove, true);
 
 var maxPoints = 11;
 var order = document.getElementById("order").value;
