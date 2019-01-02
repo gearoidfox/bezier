@@ -7,9 +7,9 @@ context.font = "bold 8pt Raleway";
 // Allow user to drag control points:
 var drag = false;
 var dragIndex;
-//canvas.addEventListener("mousedown", mouseDown, true);
-//canvas.addEventListener("mouseup", mouseUp, true);
-//canvas.addEventListener("mousemove", mouseMove, true);
+canvas.addEventListener("mousedown", mouseDown, false);
+canvas.addEventListener("mouseup", mouseUp, false);
+canvas.addEventListener("mousemove", mouseMove, false);
 
 var maxPoints = 11;
 var order = document.getElementById("order").value;
@@ -62,7 +62,7 @@ function draw() {
          */
         if(drawPoints == true) {
                 context.strokeStyle = "#d0e1f9";
-                context.fillStyle = "#283655";
+                context.fillStyle = "#d0e1f9";
                 for(i = 0; i <= order; i++) {
                         context.beginPath();
                         context.arc(controlPoints[i].x, controlPoints[i].y, 4, 0, 2*Math.PI);
