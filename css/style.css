@@ -4,27 +4,40 @@ body {
         border-color: #283655;
         font-family: 'Raleway', sans-serif;
         font-size: 12pt;
-        font-weight: bold;
 }
 
-
 h1 {
+        font-weight: bold;
         text-align: center;
-        font-family: 'Berkshire Swash', sans-serif;
+        font-family: 'Cherry Swash', sans-serif;
         font-size: 32pt;
 }
 
 h2 {
-        font-family: 'Berkshire Swash', sans-serif;
+        font-family: 'Cherry Swash', sans-serif;
 }
 
 h3 {
-        font-family: 'Berkshire Swash', sans-serif;
+        font-family: 'Cherry Swash', sans-serif;
         font-size: 16pt;
-        padding: 0px;
+        padding: 10px 0px 0px 0px;
         margin: 0px;
         text-align: left;
         text-decoration: none;
+}
+
+p {
+        text-align: left;
+        display: block;
+}
+
+span {
+        text-align: left;
+        display: inline-block;
+}
+
+span#sliderInstruction {
+        text-align: center;
 }
 
 img {
@@ -36,8 +49,16 @@ img {
 }
 
 img.inline {
-        height: 60px;
+        max-height: 60px;
         border: 0px;
+}
+
+img#eq2 {
+        height: 55px;
+}
+
+ul {
+        text-align: left;
 }
 
 hr {
@@ -46,14 +67,48 @@ hr {
         display: none;
 }
 
+div {
+        margin: auto;
+}
+
+div.text { 
+        width: 800px;
+}
+
+
+div#canvasPlusSlider {
+        width: 1000;
+        margin: auto;
+}
+
 div#divider {
         padding: 20px 0px 0px 0px;
+}
+
+div.canvasDiv {
+        background: #FFFFFF;
+        border: 1px;
+        margin: 0px 0px 0px 0px;
+        border-style: solid;
+        padding: 0px 0px 0px 0px;
+        display: inline-block;
+        vertical-align: text-top;
+        height: 500px;
+}
+
+div#bernsteinCanvasDiv {
+        text-align: center;
+        margin: 20px 0px 0px 0px;
 }
 
 canvas {
         display: inline-block;
         margin: 0px;
         padding: 0px;
+}
+
+span#sliderInstruction {
+        display: block;
 }
 
 div#description {
@@ -67,6 +122,21 @@ div#content {
         text-align: center;
 }
 
+input#tslider {
+        margin: 12px 0px 0px 0px;
+        width: 500px;
+        background: #d0e1f9;
+        vertical-align: bottom;
+}
+
+div#sliderDiv{
+        width: 1000px;
+        text-align: center;
+        display: block;
+}
+
+
+
 div#bezier {
         display: block;
 }
@@ -75,16 +145,6 @@ div#instruction {
         margin: 0px 5px 5px 0px;
 }
 
-div#bezierCanvasDiv {
-        background: #FFFFFF;
-        border: 1px;
-        margin: 0px 0px 0px 0px;
-        border-style: solid;
-        padding: 0px 0px 0px 0px;
-        display: inline-block;
-        vertical-align: text-top;
-        height: 500px;
-}
 div#controls {
         border: 1px;
         padding: 5px 5px 5px  5px ;
@@ -132,6 +192,10 @@ label {
         float: left;
 }
 
+label#sliderLabel {
+        width: 25px;
+        display: inline-block;
+}
 
 button {
         background: #ddddee;
@@ -140,12 +204,70 @@ button {
         text-align: center;
         display: block;
 }
-p {
-        text-align: left;
-        display: block;
+
+
+div#bernsteinInstruction {
+        margin: 0px 5px 5px 0px;
 }
 
-span {
-        text-align: left;
+
+div#bernsteinControls {
+        border: 1px;
+        padding: 5px 5px 5px  5px ;
+        border-style: solid;
+        vertical-align: text-top;
+        text-align: right;
+}
+
+div#bernsteinSide {
+        padding: 0px 5px 5px  5px ;
         display: inline-block;
+        vertical-align: text-top;
+        text-align: left;
+}
+
+div#bernsteinParams {
+        border: 1px;
+        border-style: none;
+        margin: 0px 0px 5px 0px;
+}
+
+div#bernsteinOptions {
+        border: 1px;
+        border-style: none;
+        margin: 5px 0px 5px 0px;
+}
+
+div#buttonDiv {
+        float: right;
+}
+
+div.radioOption {
+        text-align: right;
+        padding: 0px 0px 0px 20px;
+}
+
+input {
+        margin: 3px 0px 3px 0px;
+        text-align: right;
+        background: #ffffff;
+        border: none;
+}
+
+label {
+        float: left;
+}
+
+label#sliderLabel {
+        text-align: right;
+        float: none;
+        display: inline-block;
+}
+
+button {
+        background: #ddddee;
+        border: none;
+        font-family: sans-serif;
+        text-align: center;
+        display: block;
 }
