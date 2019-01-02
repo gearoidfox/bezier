@@ -1,16 +1,16 @@
+"use strict";
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
 
+// Allow user to drag control points:
 var drag = false;
-var drag_index;
-
+var dragIndex;
 canvas.addEventListener("mousedown", mouseDown, false);
 canvas.addEventListener("mouseup", mouseUp, false);
 canvas.addEventListener("mousemove", mouseMove, false);
 
 var maxPoints = 11;
 var order = document.getElementById("order").value;
-
 var controlPoints = new Array(maxPoints);
 
 init();
@@ -76,11 +76,10 @@ function draw() {
         context.lineWidth = 3;
         context.beginPath();
         context.moveTo(controlPoints[0].x, controlPoints[0].y);
-        var x;
-        var y;
-        for(t = 0; t <= 1; t += 0.001){
-                x = 0
-                y = 0
+        for(var tx = 0; tx <= 100; tx++){
+                let t = tx / 100;
+                let x = 0
+                let y = 0
                 for(i = 0; i <= order; i++) {
                         x += choose(order, i) * Math.pow(1 - t, order - i) * Math.pow(t, i) * controlPoints[i].x;
                         y += choose(order, i) * Math.pow(1 - t, order - i) * Math.pow(t, i) * controlPoints[i].y;
@@ -103,12 +102,12 @@ function fact(n) {
 }
 
 function mouseDown(event) {
-        for(i = 0; i <= order; i++) {
-                xdiff = controlPoints[i].x - event.offsetX;
-                ydiff = controlPoints[i].y - event.offsetY;
+        for(var i = 0; i <= order; i++) {
+                let xdiff = controlPoints[i].x - event.offsetX;
+                let ydiff = controlPoints[i].y - event.offsetY;
                 if(Math.abs(xdiff) < 6 && Math.abs(ydiff) < 6) {
                         drag = true;
-                        drag_index = i;
+                        dragIndex = i;
                         break;
                 }
         }
@@ -120,7 +119,7 @@ function mouseUp(event) {
 
 function mouseMove(event) {
         if(drag) {
-                controlPoints[i] = {x: event.offsetX, y: event.offsetY};
+                controlPoints[dragIndex] = {x: event.offsetX, y: event.offsetY};
                 draw();
         }
 }
