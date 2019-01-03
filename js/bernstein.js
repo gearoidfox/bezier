@@ -15,6 +15,10 @@ bernsteinCanvas.addEventListener("mousedown", bernsteinMouseDown, false);
 bernsteinCanvas.addEventListener("mouseup", bernsteinMouseUp, false);
 bernsteinCanvas.addEventListener("mousemove", bernsteinMouseMove, false);
 
+bernsteinCanvas.addEventListener("touchstart", bernsteinMouseDown, false);
+bernsteinCanvas.addEventListener("touchend", bernsteinMouseUp, false);
+bernsteinCanvas.addEventListener("touchmove", bernsteinMouseMove, false);
+
 var maxPoints = 11;
 var bernsteinControlPoints = new Array(maxPoints);
 var order = document.getElementById("bernsteinOrder").value;

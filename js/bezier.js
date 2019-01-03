@@ -7,8 +7,11 @@ bezierContext.font = "bold 8pt Raleway";
 // Allow user to drag control points:
 var drag = false;
 var dragIndex;
+bezierCanvas.addEventListener("touchstart", bezierMouseDown, false);
 bezierCanvas.addEventListener("mousedown", bezierMouseDown, false);
+bezierCanvas.addEventListener("touchend", bezierMouseUp, false);
 bezierCanvas.addEventListener("mouseup", bezierMouseUp, false);
+bezierCanvas.addEventListener("touchmove", bezierMouseMove, false);
 bezierCanvas.addEventListener("mousemove", bezierMouseMove, false);
 
 var maxPoints = 11;
