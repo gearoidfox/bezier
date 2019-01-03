@@ -1,6 +1,6 @@
 # Bézier curves
 
-### Interactive javascript demo:
+### Interactive javascript demos:
 
 [gearoidfox.github.io/bezier](https://gearoidfox.github.io/bezier)
 
