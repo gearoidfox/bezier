@@ -28,9 +28,9 @@ function initBezier() {
 function drawBezier() {
         bezierContext.clearRect(0, 0, bezierCanvas.width, bezierCanvas.height);
         order = document.getElementById("order").value;
-        drawLines = document.getElementById("drawLines").checked;
-        drawPoints = document.getElementById("drawPoints").checked;
-        drawLabels = document.getElementById("drawLabels").checked;
+        var drawLines = document.getElementById("drawLines").checked;
+        var drawPoints = document.getElementById("drawPoints").checked;
+        var drawLabels = document.getElementById("drawLabels").checked;
         bezierContext.lineWidth = 1;
         bezierContext.strokeStyle = "#d0e1f9";
         var i;

@@ -34,7 +34,7 @@ function initBernstein() {
 
 // Draw full bernstein canvas:
 function drawBernstein() {
-        sliderLabel = document.getElementById("sliderLabel");
+        var sliderLabel = document.getElementById("sliderLabel");
         order = document.getElementById("bernsteinOrder").value;
         tmax = document.getElementById("tslider").value;
         sliderLabel.innerHTML = "t=" + tmax;
@@ -42,14 +42,14 @@ function drawBernstein() {
         for (var i = 0; i <= order; i++) {
                 bernsteinControlPoints[i].r = choose(order, i) * Math.pow(1 - tmax, order - i) * Math.pow(tmax, i);
         }
-        draw_poly();
-        draw_curve();
+        drawPoly();
+        drawCurve();
 }
 
 
 
 // Draw Bernstein basis polynomials on left half of canvas:
-function draw_poly() {
+function drawPoly() {
         // Clear left half of canvas only:
         bernsteinContext.clearRect(0, 0, xoffset, bernsteinCanvas.height);
 
@@ -129,16 +129,16 @@ function draw_poly() {
 }
 
 // Draw Bezier curve on right half of canvas
-function draw_curve() {
+function drawCurve() {
         var i;
 
         // Clear right half of canvas + a little bit over the centre line:
         bernsteinContext.clearRect(xoffset - 30, 0, bernsteinCanvas.width, bernsteinCanvas.height);
 
         // Get drawing options:
-        drawLines = document.getElementById("bernsteinDrawLines").checked;
-        drawPoints = document.getElementById("bernsteinDrawPoints").checked;
-        drawLabels = document.getElementById("bernsteinDrawLabels").checked;
+        var drawLines = document.getElementById("bernsteinDrawLines").checked;
+        var drawPoints = document.getElementById("bernsteinDrawPoints").checked;
+        var drawLabels = document.getElementById("bernsteinDrawLabels").checked;
 
         // Draw title 
         bernsteinContext.fillStyle="#555555";
@@ -276,7 +276,7 @@ function bernsteinMouseMove(event) {
                         x = xoffset + 20;
                 }
                 bernsteinControlPoints[bernsteinDragIndex] = {x: x - xoffset, y: event.offsetY, r: r };
-                draw_curve();
+                drawCurve();
         }
 }
 
