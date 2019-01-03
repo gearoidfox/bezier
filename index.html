@@ -55,7 +55,9 @@
                                 <h3> Bernstein Polynomials</h3>
                                 <p> The weight of each control point varies continuously as a function of t. The functions that we use to calculate the weights are known as the <b>Bernstein basis polynomials.</b> There are n+1 n-th order Bernstein polynomials, defined as:</p>
                                 <p> <img class="inline" id="eq2" src="img/bernstein_blue.png" alt="Definition of Bernstein polynomials."></img></p>
-                                <p> For example, a quadratic Bézier curve has three control points, P[0], P[1], and P[2]. P[0] has weight b[0,2](t), P[1] has weight b[1,2](t), and P[2] has weight b[2,2](t). </p>
+                                <p>The equation of the Bézier curve can therefore be written as:</p>
+                                <p> <img class="inline" id="eq3" src="img/bernstein2_blue.png" alt="Definition of Bernstein polynomials."></img></p>
+                                <p>As a concrete example, a quadratic Bézier curve has three control points, P[0], P[1], and P[2]. P[0] has weight b[0,2](t), P[1] has weight b[1,2](t), and P[2] has weight b[2,2](t). The following interactive graphic highlights the relationship between the curve, the control points, and the basis polynomials: </p>
                                 </div>
                                 <div id="canvasPlusSlider">
                                         <div id="bernsteinCanvasDiv" class="canvasDiv">
@@ -99,10 +101,10 @@
 
                                 <p> It can also be helpful to think about a recursive  definition for Bézier curves. When we draw a first order Bézier curve, we can think of it as interpolating linearly between two control points, tracing out a straight line:</p>
                                 <p> <img src="img/linear.gif" alt="Animation of a linear Bézier curve."></p>
-                                <p>We can think of a second-order (quadratic) curve as a linear interpolation between two first-order curves:</p>
+                                <p>We can then think of a second-order (quadratic) curve as a linear interpolation between two first-order curves. Here, the first order curves are labelled Q0 and Q1:</p>
                                 <p> <img src="img/quadratic.gif" alt="Animation of a quadratic Bézier curve."> </p>
                                 </p>
-                                <p>A third-order (cubic) curve, in turn, interpolates between two second-order curves:</p>
+                                <p>A third-order (cubic) curve, in turn, interpolates between two second-order curves. First order curves are labelled Q0, Q1, Q2, and second-order curves are labelled R1 and R2:</p>
                                 <p> <img src="img/cubic.gif" alt="Animation of a cubic Bézier curve."> </p>
                                 <p>This pattern continues for higher order curves, with a Bézier curve of order n being a linear interpolation between two curves of order n-1. If the n-th order curve has control points P[0],...,P[n], then the two lower order curves have control points P[0],...,P[n-1] and P[1],...,P[n], respectively.</p>
                                 <h3>Properties of Bézier curves</h3>
