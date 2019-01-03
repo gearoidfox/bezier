@@ -104,13 +104,15 @@
                                 </p>
                                 <p>A third-order (cubic) curve, in turn, interpolates between two second-order curves:</p>
                                 <p> <img src="img/cubic.gif" alt="Animation of a cubic Bézier curve."> </p>
-                                <p>This pattern continues for higher order curves, with a Bézier curve of order n being a linear interpolation between two curves of order n-1. If the n'th order curve has control points P[0],...,P[n], the two lower order curves have control points P[0],...,P[n-1] and P[1],...,P[n], respectively.</p>
-                                <h3>Notes</h3>
+                                <p>This pattern continues for higher order curves, with a Bézier curve of order n being a linear interpolation between two curves of order n-1. If the n-th order curve has control points P[0],...,P[n], then the two lower order curves have control points P[0],...,P[n-1] and P[1],...,P[n], respectively.</p>
+                                <h3>Properties of Bézier curves</h3>
                                 <p>
                                 <ul>
                                         <li>A Bézier curve is always contained inside the convex hull of its control points.</li>
+                                        <li>The curve always passes through the first and last control points.</li>
                                         <li>When the first and last control points are the same, the curve forms a closed loop.</li>
                                         <li>A Bézier curve can never exactly form a circle.</li>
+                                        <li>To apply any affine transformation to a Bézier curve, we can simply apply the transormation to the control points.  </li>
                                 </ul>
                                 </p>
                         </div>
