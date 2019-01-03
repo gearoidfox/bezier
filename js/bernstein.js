@@ -20,6 +20,8 @@ var bernsteinControlPoints = new Array(maxPoints);
 var order = document.getElementById("bernsteinOrder").value;
 var tmax = document.getElementById("tslider").value;
 
+initBernstein();
+drawBernstein();
 
 // Initialise before first drawing:
 function initBernstein() {

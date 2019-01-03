@@ -15,6 +15,9 @@ var maxPoints = 11;
 var order = document.getElementById("order").value;
 var bezierControlPoints = new Array(maxPoints);
 
+initBezier();
+drawBezier();
+
 
 function initBezier() {
         bezierContext.clearRect(0, 0, bezierCanvas.width, bezierCanvas.height);
