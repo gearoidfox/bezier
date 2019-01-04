@@ -105,10 +105,26 @@ function fact(n) {
 }
 
 function bezierMouseDown(event) {
+        let bezierThreshold = 6;
+        if(event.target == bezierCanvas) {
+                event.preventDefault();
+        }
+        var mouseX;
+        var mouseY;
+        if(event.offsetX){
+                mouseX = event.offsetX;
+                mouseY = event.offsetY;
+        } else {
+                bezierThreshold = 11;
+                var rect = bezierCanvas.getBoundingClientRect();
+                mouseX = event.touches[0].pageX - rect.left - window.scrollX;
+                mouseY = event.touches[0].pageY - rect.top - window.scrollY;
+
+        }
         for(var i = 0; i <= order; i++) {
-                let xdiff = bezierControlPoints[i].x - event.offsetX;
-                let ydiff = bezierControlPoints[i].y - event.offsetY;
-                if(Math.abs(xdiff) < 6 && Math.abs(ydiff) < 6) {
+                let xdiff = bezierControlPoints[i].x - mouseX;
+                let ydiff = bezierControlPoints[i].y - mouseY;
+                if(Math.abs(xdiff) < bezierThreshold && Math.abs(ydiff) < bezierThreshold) {
                         drag = true;
                         dragIndex = i;
                         break;
@@ -121,8 +137,22 @@ function bezierMouseUp(event) {
 }
 
 function bezierMouseMove(event) {
+        if(event.target == bezierCanvas) {
+                event.preventDefault();
+        }
+        var mouseX;
+        var mouseY;
+        if(event.offsetX){
+                mouseX = event.offsetX;
+                mouseY = event.offsetY;
+        } else {
+                var rect = bezierCanvas.getBoundingClientRect();
+                mouseX = event.touches[0].pageX - rect.left - window.scrollX;
+                mouseY = event.touches[0].pageY - rect.top - window.scrollY;
+
+        }
         if(drag) {
-                bezierControlPoints[dragIndex] = {x: event.offsetX, y: event.offsetY};
+                bezierControlPoints[dragIndex] = {x: mouseX, y: mouseY};
                 drawBezier();
         }
 }
