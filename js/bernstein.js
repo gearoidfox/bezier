@@ -15,6 +15,10 @@ bernsteinCanvas.addEventListener("mousedown", bernsteinMouseDown, false);
 bernsteinCanvas.addEventListener("mouseup", bernsteinMouseUp, false);
 bernsteinCanvas.addEventListener("mousemove", bernsteinMouseMove, false);
 
+bernsteinCanvas.addEventListener("touchstart", bernsteinMouseDown, false);
+bernsteinCanvas.addEventListener("touchend", bernsteinMouseUp, false);
+bernsteinCanvas.addEventListener("touchmove", bernsteinMouseMove, false);
+
 var maxPoints = 11;
 var bernsteinControlPoints = new Array(maxPoints);
 var order = document.getElementById("bernsteinOrder").value;
@@ -255,10 +259,27 @@ function fact(n) {
 }
 
 function bernsteinMouseDown(event) {
+        let bernsteinThreshold = 6
+        if(event.target == bernsteinCanvas) {
+                event.preventDefault();
+        }
+        var mouseX;
+        var mouseY;
+        if(event.offsetX){
+                mouseX = event.offsetX;
+                mouseY = event.offsetY;
+        } else {
+                bernsteinThreshold = 11;
+                var rect = bernsteinCanvas.getBoundingClientRect();
+                mouseX =  event.touches[0].pageX - rect.left- window.scrollX;
+                mouseY = event.touches[0].pageY - rect.top - window.scrollY;
+                console.log(rect.left, rect.top, mouseX, mouseY);
+
+        }
         for(var i = 0; i <= order; i++) {
-                let xdiff = xoffset + bernsteinControlPoints[i].x - event.offsetX;
-                let ydiff = bernsteinControlPoints[i].y - event.offsetY;
-                if(Math.abs(xdiff) < 6 && Math.abs(ydiff) < 6) {
+                let xdiff = xoffset + bernsteinControlPoints[i].x - mouseX;
+                let ydiff = bernsteinControlPoints[i].y - mouseY;
+                if(Math.abs(xdiff) < bernsteinThreshold && Math.abs(ydiff) < bernsteinThreshold) {
                         bernsteinDrag = true;
                         bernsteinDragIndex = i;
                         break;
@@ -272,12 +293,23 @@ function bernsteinMouseUp(event) {
 
 function bernsteinMouseMove(event) {
         if(bernsteinDrag) {
-                let x = event.offsetX;
+                var mouseX;
+                var mouseY;
+                if(event.offsetX){
+                        mouseX = event.offsetX;
+                        mouseY = event.offsetY;
+                } else {
+                        var rect = bernsteinCanvas.getBoundingClientRect();
+                        mouseX =  event.touches[0].pageX - rect.left- window.scrollX;
+                        mouseY = event.touches[0].pageY - rect.top - window.scrollY;
+
+                }
+                let x = mouseX;
                 let r = bernsteinControlPoints[bernsteinDragIndex].r;
                 if(x <= xoffset + 20 ){
                         x = xoffset + 20;
                 }
-                bernsteinControlPoints[bernsteinDragIndex] = {x: x - xoffset, y: event.offsetY, r: r };
+                bernsteinControlPoints[bernsteinDragIndex] = {x: x - xoffset, y: mouseY, r: r };
                 drawCurve();
         }
 }
